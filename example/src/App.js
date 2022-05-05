@@ -12,6 +12,7 @@ function App() {
         amount="1.99"
         token="btMNXe"
         theme="dark"
+        lang="en"
         apiKey="QQRg8Kp65YzP1X5YHATPS3KpMia3xBJL"
       />
     </div>

@@ -2,7 +2,7 @@
  * SMARTy Pay Client React
  * @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
  */
-import {Theme, Util} from 'smartypay-client-sdk';
+import {Lang, Theme, Util} from 'smartypay-client-sdk';
 import styles from "./assets/style.module.css";
 import Icon from './assets/icon.svg';
 import React, {useLayoutEffect, useMemo, useState} from 'react';
@@ -13,7 +13,7 @@ export interface SmartyPayButtonProps {
   apiKey: string | undefined,
   token: string | undefined,
   amount: string | undefined,
-  lang?: string,
+  lang?: Lang,
   skipCustomFont?: boolean,
   theme?: Theme,
 }
