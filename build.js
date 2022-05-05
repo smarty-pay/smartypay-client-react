@@ -9,7 +9,7 @@ async function build(){
     logLevel: 'info',
     entryPoints: ['src/index.tsx'],
     bundle: true,
-    minify: false,
+    minify: true,
     format: 'esm',
     sourcemap: 'external',
     outdir: 'dist',

@@ -1,5 +1,8 @@
 
-button, div, p, span {
+.root button,
+.root div,
+.root p,
+.root span {
   font-family: "Open Sans", sans-serif;
   font-feature-settings: 'tnum' on, 'lnum' on;
   color: #29303E;

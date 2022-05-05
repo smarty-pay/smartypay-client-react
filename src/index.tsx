@@ -2,12 +2,12 @@
  * SMARTy Pay Client React
  * @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
  */
-import {Lang, Theme, Util} from 'smartypay-client-sdk';
+import {Theme, Util} from 'smartypay-client-sdk';
 import styles from "./assets/style.module.css";
 import Icon from './assets/icon.svg';
-import React from 'react';
+import React, {useMemo} from 'react';
 
-const {label, tokenLabel} = Util;
+const {label, tokenLabel, errorParam, parseLang} = Util;
 
 export interface SmartyPayButtonProps {
   apiKey: string | undefined,
@@ -20,29 +20,56 @@ export interface SmartyPayButtonProps {
 
 export function SmartyPayButton(
   {
-    lang,
+    apiKey,
     amount,
     token,
     theme,
+    lang: langVal,
   }: SmartyPayButtonProps
 ){
 
-  const labelStr = label(lang as Lang);
+  const lang = parseLang(langVal);
+  const labelStr = label(lang);
   const amountStr = amount && token? `${amount} ${tokenLabel(token)}` : '';
 
+  const errorElem = useMemo(()=>{
+
+    if( ! apiKey)
+      return <div className={styles.error}>${errorParam('apiKey', lang)}</div>;
+
+    if( ! token)
+      return <div className={styles.error}>${errorParam('token', lang)}</div>;
+
+    if( ! amount)
+      return <div className={styles.error}>${errorParam('amount', lang)}</div>;
+
+    return undefined;
+
+  }, [apiKey, lang]);
+
+  const hasError = !!errorElem;
+
   return (
-    <button className={`${styles.payButton} ${theme === 'dark'? styles.dark : ''}`}>
+    <div className={styles.root}>
 
-      <span>
-        <Icon/>
-      </span>
+      <button
+        className={`${styles.payButton} ${theme === 'dark'? styles.dark : ''} ${hasError? styles.disabled : ''}`}
+        disabled={hasError}
+      >
 
-      <span>
-        {labelStr}
-        {amountStr}
-      </span>
+        <span>
+          <Icon/>
+        </span>
 
-      <span/>
-    </button>
+        <span>
+          {labelStr}
+          {amountStr}
+        </span>
+
+        <span/>
+      </button>
+
+      {errorElem}
+    </div>
   )
 }
