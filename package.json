@@ -1,6 +1,6 @@
 {
   "name": "smartypay-client-react",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "React library for show a custom payment button",
   "author": "Evgeny Dolganov <evgenij.dolganov@gmail.com>",
   "repository": "https://github.com/smarty-pay/smartypay-client-react",
@@ -40,8 +40,8 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "smartypay-client-sdk": "^1.0.4"
+    "react": ">=14.0.0",
+    "react-dom": ">=14.0.0",
+    "smartypay-client-sdk": ">=1.0.4"
   }
 }

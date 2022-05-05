@@ -1,20 +1,18 @@
 import './App.css';
-import {SmartyPayButton} from "smartypay-client-react";
+import {SmartyPayButton} from 'smartypay-client-react';
 
 function App() {
 
   return (
     <div className="App">
 
-      <h3>
-        SMARTy Pay React Button Demo
-      </h3>
+      <h3>Button Demo</h3>
 
       <SmartyPayButton
-        apiKey=""
-        token=""
-        amount=""
+        amount="1.99"
+        token="btMNXe"
         theme="dark"
+        apiKey="QQRg8Kp65YzP1X5YHATPS3KpMia3xBJL"
       />
     </div>
   );

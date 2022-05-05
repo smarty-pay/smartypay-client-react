@@ -1,4 +1,8 @@
 
+.root {
+  display: inline-block;
+}
+
 .root button,
 .root div,
 .root p,
@@ -74,7 +78,8 @@
   flex: 2;
 }
 
-.error {
+.error,
+div.error {
   color: brown;
   padding: 12px 0;
 }
