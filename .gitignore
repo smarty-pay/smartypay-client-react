@@ -1,0 +1,13 @@
+/node_modules/
+/build/
+/lib/
+/dist/
+/docs/
+.idea/*
+
+/example/.idea/
+/example/node_modules/
+
+.DS_Store
+coverage
+*.log
