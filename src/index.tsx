@@ -3,6 +3,7 @@
  * @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
  */
 import {Lang, Theme, Util} from 'smartypay-client-sdk';
+import styles from "./assets/style.css";
 import Icon from './assets/icon.svg';
 import React from 'react';
 
@@ -22,17 +23,23 @@ export function SmartyPayButton(
     lang,
     amount,
     token,
+    theme,
   }: SmartyPayButtonProps
 ){
+
+  const labelStr = label(lang as Lang);
+  const amountStr = amount && token? `${amount} ${tokenLabel(token)}` : '';
+
   return (
-    <button>
+    <button className={`${styles.payButton} ${theme === 'dark'? styles.dark : ''}`}>
 
       <span>
         <Icon/>
       </span>
 
       <span>
-        {label(lang as Lang)} ${amount && token? `${amount} ${tokenLabel(token)}` : ''}
+        {labelStr}
+        {amountStr}
       </span>
 
       <span/>

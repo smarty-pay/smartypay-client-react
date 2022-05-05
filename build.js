@@ -1,6 +1,7 @@
 const esbuild = require('esbuild');
 const { dtsPlugin } = require("esbuild-plugin-d.ts");
 const svgrPlugin = require('esbuild-plugin-svgr');
+const cssModulesPlugin = require('esbuild-css-modules-plugin')
 
 async function build(){
   // make react lib
@@ -13,6 +14,7 @@ async function build(){
     sourcemap: 'external',
     outfile: `dist/esbuild/index.jsx`,
     plugins: [
+      cssModulesPlugin(),
       svgrPlugin(),
       dtsPlugin()
     ]
