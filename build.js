@@ -16,6 +16,7 @@ async function build(){
     plugins: [
       cssModulesPlugin({
         v2: true,
+        inject: true,
       }),
       svgrPlugin(),
       dtsPlugin()
