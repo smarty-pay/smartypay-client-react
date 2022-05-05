@@ -3,10 +3,7 @@
  * @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
  */
 import {Lang, Theme, Util} from 'smartypay-client-sdk';
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import svg from './assets/icon.svg';
+import Icon from './assets/icon.svg';
 import React from 'react';
 
 const {label, tokenLabel} = Util;
@@ -29,9 +26,16 @@ export function SmartyPayButton(
 ){
   return (
     <button>
-      <span>${svg}</span>
-      <span>${label(lang as Lang)} ${amount && token? `${amount} ${tokenLabel(token)}` : ''}</span>
-      <span></span>
+
+      <span>
+        <Icon/>
+      </span>
+
+      <span>
+        {label(lang as Lang)} ${amount && token? `${amount} ${tokenLabel(token)}` : ''}
+      </span>
+
+      <span/>
     </button>
   )
 }
