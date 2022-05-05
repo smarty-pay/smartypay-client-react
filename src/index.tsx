@@ -9,6 +9,8 @@ import React, {useLayoutEffect, useMemo, useState} from 'react';
 
 const {label, tokenLabel, errorParam, parseLang, initOpenSansFont, postForm} = Util;
 
+export {Lang, Theme}
+
 export interface SmartyPayButtonProps {
   apiKey: string | undefined,
   token: string | undefined,
