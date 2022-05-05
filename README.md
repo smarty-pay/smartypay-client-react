@@ -2,6 +2,9 @@
 # SMARTy Pay Client React
 React library for show a payment button
 
+## Demo
+[Online demo](https://checkout.smartypay.io/react-example/index.html)
+
 ## Installation
 ```shell
 npm i smartypay-client-react
