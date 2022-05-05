@@ -14,6 +14,7 @@ function App() {
         apiKey=""
         token=""
         amount=""
+        theme="dark"
       />
     </div>
   );

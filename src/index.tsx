@@ -3,7 +3,7 @@
  * @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
  */
 import {Lang, Theme, Util} from 'smartypay-client-sdk';
-import styles from "./assets/style.css";
+import styles from "./assets/style.module.css";
 import Icon from './assets/icon.svg';
 import React from 'react';
 

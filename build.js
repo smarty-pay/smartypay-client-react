@@ -9,12 +9,14 @@ async function build(){
     logLevel: 'info',
     entryPoints: ['src/index.tsx'],
     bundle: true,
-    minify: true,
+    minify: false,
     format: 'esm',
     sourcemap: 'external',
-    outfile: `dist/esbuild/index.jsx`,
+    outdir: 'dist',
     plugins: [
-      cssModulesPlugin(),
+      cssModulesPlugin({
+        v2: true,
+      }),
       svgrPlugin(),
       dtsPlugin()
     ]
