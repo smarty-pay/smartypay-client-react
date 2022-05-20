@@ -1,10 +1,10 @@
-import {I18n, initOpenSansFont, Lang, parseLang, Theme, Util} from 'smartypay-client-sdk';
+import {donationAppUrl, I18n, initOpenSansFont, Lang, parseLang, Theme, Util} from 'smartypay-client-sdk';
 import styles from './assets/style.module.css';
 import Icon from './assets/icon.svg';
 import React, {useLayoutEffect, useMemo, useState} from 'react';
 
-const {postForm} = Util;
-const {tokenLabel, errorParam, labelDonation} = I18n;
+const {makeElem} = Util;
+const {errorParam, labelDonation} = I18n;
 
 export interface SmartyPayDonationProps {
   donationId: string,
@@ -23,6 +23,7 @@ export function SmartyPayDonation(
 ){
 
   const [actionId, setActionId] = useState(-1);
+  const [opened, setOpened] = useState(false);
 
   const lang = parseLang(langVal);
   const labelStr = labelDonation(lang);
@@ -30,23 +31,68 @@ export function SmartyPayDonation(
   // call action
   useLayoutEffect(()=>{
 
-    if(actionId < 0)
+    if(actionId < 0 || opened)
       return;
 
+    let iframeParent: HTMLElement|undefined;
+    const frameOrigin = donationAppUrl();
+
     // timeout for visual click
-    const timerId = setTimeout(()=>{
+    const timerId = setTimeout(showFrame, 600);
 
-      postForm('https://api.smartypay.io/checkout', {
-        'api-key': apiKey,
-        token,
-        amount,
-        lang,
-      });
+    function showFrame(){
 
-    }, 600);
+      setOpened(true);
+
+      const frameUrl = `${frameOrigin}/${donationId}?lang=${lang}&frame-mode=true`;
+
+      iframeParent = makeElem(`<div class="${styles.iframeContainer}"></div>`);
+      const iframe = makeElem(`<iframe class="${styles.frame}" src="${frameUrl}" scrolling="0" frameborder="0"></iframe>`);
+
+      iframeParent.appendChild(iframe);
+      document.body.appendChild(iframeParent);
+      document.addEventListener('keydown', onEsc);
+      window.addEventListener("message", onFrameEvent);
+    }
+
+    // close events
+    function onEsc(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        closeDialog();
+      }
+    }
+
+    // iframe events
+    function onFrameEvent(event: MessageEvent) {
+
+      if( event.origin !== frameOrigin){
+        return;
+      }
+
+      const {type, value} = event.data || {};
+
+      if(type === 'smartypay-event' && value === 'close'){
+        closeDialog();
+      }
+    }
+
+
+    function closeDialog(){
+
+      clearTimeout(timerId);
+
+      if(iframeParent){
+
+        document.removeEventListener('keydown', onEsc);
+        window.removeEventListener("message", onFrameEvent);
+
+        document.body.removeChild(iframeParent);
+        setOpened(false);
+      }
+    }
 
     return ()=> {
-      clearTimeout(timerId);
+      closeDialog();
     }
   }, [actionId, donationId, lang]);
 
