@@ -1,6 +1,5 @@
 import './App.css';
 import {SmartyPayButton, SmartyPayDonation} from 'smartypay-client-react';
-import {Lang, Theme} from 'smartypay-client-sdk';
 
 function App() {
 

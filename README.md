@@ -10,7 +10,24 @@ React library for show a payment button
 npm i smartypay-client-react
 ```
 
-## Usage
+
+### Donation button
+![Button img](content/donation-button-dark.png?raw=true "Title")
+```jsx
+import {SmartyPayDonation} from 'smartypay-client-react';
+
+<SmartyPayDonation
+  donationId="some"
+  theme="dark"
+  lang="en"
+/>
+```
+- **donationId** - you can get it here: https://dashboard.smartypay.io/
+- **lang** - `en` by default (also has `es`, `ru`)
+- **theme** - `light` (default) or `dark`
+
+### Payment Button
+![Button img](content/pay-button-dark.png?raw=true "Title")
 ```jsx
 import {SmartyPayButton} from 'smartypay-client-react';
 
