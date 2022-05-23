@@ -1,12 +1,21 @@
 import './App.css';
-import {SmartyPayButton} from 'smartypay-client-react';
+import {SmartyPayButton, SmartyPayDonation} from 'smartypay-client-react';
+import {Lang, Theme} from 'smartypay-client-sdk';
 
 function App() {
 
   return (
     <div className="App">
 
-      <h3>Button Demo</h3>
+      <h3>Buttons Demo</h3>
+
+      <SmartyPayDonation
+        donationId="some"
+        theme="light"
+        lang="en"
+      />
+
+      <br/><br/>
 
       <SmartyPayButton
         amount="1.99"
