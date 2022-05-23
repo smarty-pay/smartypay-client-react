@@ -1,6 +1,10 @@
+/**
+ * SMARTy Pay Client React
+ * @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
+ */
 import {donationAppUrl, I18n, initOpenSansFont, Lang, parseLang, Theme, Util} from 'smartypay-client-sdk';
-import styles from './assets/style.module.css';
-import Icon from './assets/icon.svg';
+import styles from '../assets/style.module.css';
+import Icon from '../assets/icon.svg';
 import React, {useLayoutEffect, useMemo, useState} from 'react';
 
 const {makeElem} = Util;
@@ -87,6 +91,8 @@ export function SmartyPayDonation(
         window.removeEventListener("message", onFrameEvent);
 
         document.body.removeChild(iframeParent);
+        iframeParent = undefined;
+
         setOpened(false);
       }
     }
