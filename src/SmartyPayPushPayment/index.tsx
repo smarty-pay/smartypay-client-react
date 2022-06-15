@@ -2,36 +2,36 @@
  * SMARTy Pay Client React
  * @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
  */
-import {donationAppUrl, I18n, Lang, parseLang, Theme} from 'smartypay-client-sdk';
+import {I18n, Lang, parseLang, pushAddressAppUrl, Theme} from 'smartypay-client-sdk';
 import React from 'react';
 import {IFrameDialogButton} from '../IFrameDialogButton';
 
-const {labelDonation} = I18n;
+const {labelPushAddress} = I18n;
 
-export interface SmartyPayDonationProps {
-  donationId: string,
+export interface SmartyPayPushPaymentProps {
+  address: string,
   lang?: Lang,
   skipCustomFont?: boolean,
   theme?: Theme,
 }
 
-export function SmartyPayDonation(
+export function SmartyPayPushPayment(
   {
-    donationId,
+    address,
     theme,
     lang: langVal,
     skipCustomFont = false,
-  }: SmartyPayDonationProps
+  }: SmartyPayPushPaymentProps
 ){
 
   const lang = parseLang(langVal);
-  const frameOrigin = donationAppUrl();
+  const frameOrigin = pushAddressAppUrl();
 
   return <IFrameDialogButton
     frameOrigin={frameOrigin}
-    frameUrl={`${frameOrigin}/${donationId}?lang=${lang}&frame-mode=true`}
-    label={labelDonation(lang)}
-    errorParam={!donationId? 'donationId' : undefined}
+    frameUrl={`${frameOrigin}/${address}?lang=${lang}&frame-mode=true`}
+    label={labelPushAddress(lang)}
+    errorParam={!address? 'address' : undefined}
     theme={theme}
     skipCustomFont={skipCustomFont}
     lang={lang}

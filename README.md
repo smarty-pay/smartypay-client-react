@@ -45,6 +45,21 @@ import {SmartyPayButton} from 'smartypay-client-react';
 - **theme** - `light` (default) or `dark`
 - **apiKey** - you can get it here: https://dashboard.smartypay.io/
 
+### Donation button
+![Button img](content/donation-button-dark.png?raw=true "Title")
+```jsx
+import {SmartyPayPushPayment} from 'smartypay-client-react';
+
+<SmartyPayPushPayment
+  address="CLIENT_PUSH_PAYMENT_ADDRESS"
+  theme="dark"
+  lang="en"
+/>
+```
+- **address** - push-payment address for client (see [docs](https://docs.smartypay.io/api/push-payments))
+- **lang** - `en` by default (also has `es`, `ru`)
+- **theme** - `light` (default) or `dark`
+
 
 ## Example React Project
 [See files](https://github.com/smarty-pay/smartypay-client-react/tree/main/example)
