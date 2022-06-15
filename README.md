@@ -46,7 +46,7 @@ import {SmartyPayButton} from 'smartypay-client-react';
 - **apiKey** - you can get it here: https://dashboard.smartypay.io/
 
 ### Donation button
-![Button img](content/donation-button-dark.png?raw=true "Title")
+![Button img](content/push-payment-dark.png?raw=true "Title")
 ```jsx
 import {SmartyPayPushPayment} from 'smartypay-client-react';
 
