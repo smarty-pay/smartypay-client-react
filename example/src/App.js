@@ -9,7 +9,7 @@ function App() {
       <h3>Buttons Demo</h3>
 
       <SmartyPayDonation
-        donationId="some"
+        donationId="1ffc6cff-3ba9-4b93-9fe2-632517056e8e"
         theme="light"
         lang="en"
       />
@@ -27,7 +27,7 @@ function App() {
       <br/><br/>
 
       <SmartyPayPushPayment
-        address="some"
+        address="0x344ca092b72c8f746ef8761bc572336968d3b108"
         theme="light"
         lang="en"
       />
