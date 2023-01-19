@@ -45,18 +45,18 @@ import {SmartyPayButton} from 'smartypay-client-react';
 - **theme** - `light` (default) or `dark`
 - **apiKey** - you can get it here: https://dashboard.smartypay.io/
 
-### Push Payment button
-![Button img](content/push-payment-dark.png?raw=true "Title")
+### Recharge Payment button
+![Button img](content/recharge-payment-dark.png?raw=true "Title")
 ```jsx
-import {SmartyPayPushPayment} from 'smartypay-client-react';
+import {SmartyPayRechargePayment} from 'smartypay-client-react';
 
-<SmartyPayPushPayment
-  address="CLIENT_PUSH_PAYMENT_ADDRESS"
+<SmartyPayRechargePayment
+  address="CLIENT_RECHARGE_PAYMENT_ADDRESS"
   theme="dark"
   lang="en"
 />
 ```
-- **address** - push-payment address for client (see [docs](https://docs.smartypay.io/api/push-payments))
+- **address** - recharge payment address for client (see [docs](https://docs.smartypay.io/api/recharge-payments))
 - **lang** - `en` by default (also has `es`, `ru`)
 - **theme** - `light` (default) or `dark`
 

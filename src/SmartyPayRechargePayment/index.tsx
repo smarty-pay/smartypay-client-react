@@ -2,35 +2,35 @@
  * SMARTy Pay Client React
  * @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
  */
-import {I18n, Lang, parseLang, pushAddressAppUrl, Theme} from 'smartypay-client-sdk';
+import {I18n, Lang, parseLang, rechargeAddressAppUrl, Theme} from 'smartypay-client-sdk';
 import React from 'react';
 import {IFrameDialogButton} from '../IFrameDialogButton';
 
-const {labelPushAddress} = I18n;
+const {labelRechargeAddress} = I18n;
 
-export interface SmartyPayPushPaymentProps {
+export interface SmartyPayRechargePaymentProps {
   address: string,
   lang?: Lang,
   skipCustomFont?: boolean,
   theme?: Theme,
 }
 
-export function SmartyPayPushPayment(
+export function SmartyPayRechargePayment(
   {
     address,
     theme,
     lang: langVal,
     skipCustomFont = false,
-  }: SmartyPayPushPaymentProps
+  }: SmartyPayRechargePaymentProps
 ){
 
   const lang = parseLang(langVal);
-  const frameOrigin = pushAddressAppUrl();
+  const frameOrigin = rechargeAddressAppUrl();
 
   return <IFrameDialogButton
     frameOrigin={frameOrigin}
     frameUrl={`${frameOrigin}/${address}?lang=${lang}&frame-mode=true`}
-    label={labelPushAddress(lang)}
+    label={labelRechargeAddress(lang)}
     errorParam={!address? 'address' : undefined}
     theme={theme}
     skipCustomFont={skipCustomFont}
