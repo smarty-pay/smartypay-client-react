@@ -1,5 +1,5 @@
 import './App.css';
-import {SmartyPayButton, SmartyPayDonation, SmartyPayPushPayment} from 'smartypay-client-react';
+import {SmartyPayButton, SmartyPayDonation, SmartyPayRechargePayment} from 'smartypay-client-react';
 
 function App() {
 
@@ -26,7 +26,7 @@ function App() {
 
       <br/><br/>
 
-      <SmartyPayPushPayment
+      <SmartyPayRechargePayment
         address="0x344ca092b72c8f746ef8761bc572336968d3b108"
         theme="light"
         lang="en"
