@@ -18,7 +18,7 @@ function App() {
 
       <SmartyPayButton
         amount="1.99"
-        token="btMNXe"
+        token="btUSDTv2"
         theme="dark"
         lang="en"
         apiKey="QQRg8Kp65YzP1X5YHATPS3KpMia3xBJL"
