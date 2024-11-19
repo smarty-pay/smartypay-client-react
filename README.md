@@ -1,5 +1,5 @@
 
-# SMARTy Pay Client React
+# Smarty Pay Client React
 React library for show a payment button
 
 ## Demo
@@ -14,7 +14,7 @@ npm i smartypay-client-react
 ### Donation button
 ![Button img](content/donation-button-dark.png?raw=true "Title")
 ```jsx
-import {SmartyPayDonation} from 'smartypay-client-react';
+import { SmartyPayDonation } from 'smartypay-client-react';
 
 <SmartyPayDonation
   donationId="some"
@@ -29,7 +29,7 @@ import {SmartyPayDonation} from 'smartypay-client-react';
 ### Payment Button
 ![Button img](content/pay-button-dark.png?raw=true "Title")
 ```jsx
-import {SmartyPayButton} from 'smartypay-client-react';
+import { SmartyPayButton } from 'smartypay-client-react';
 
 <SmartyPayButton
   amount="1.99" 
@@ -48,7 +48,7 @@ import {SmartyPayButton} from 'smartypay-client-react';
 ### Recharge Payment button
 ![Button img](content/recharge-payment-dark.png?raw=true "Title")
 ```jsx
-import {SmartyPayRechargePayment} from 'smartypay-client-react';
+import { SmartyPayRechargePayment } from 'smartypay-client-react';
 
 <SmartyPayRechargePayment
   address="CLIENT_RECHARGE_PAYMENT_ADDRESS"

@@ -1,5 +1,5 @@
 /**
- * SMARTy Pay Client React
+ * Smarty Pay Client React
  * @author Evgeny Dolganov <evgenij.dolganov@gmail.com>
  */
 
